@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://gbm1yux0m6c2"]
+
+[ext_resource type="Texture2D" uid="uid://dxts56q82u66o" path="res://assets/player/parrot.png" id="1_6erul"]
+[ext_resource type="Texture2D" uid="uid://vdry3sstv18g" path="res://assets/env/elementStone025.png" id="2_ypvbe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0pr87"]
+radius = 31.0644
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b44rm"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n24u3"]
+size = Vector2(61.5, 213)
+
+[node name="TestingScene" type="Node2D"]
+
+[node name="Parrot" type="RigidBody2D" parent="."]
+position = Vector2(578, 276)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parrot"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_6erul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot"]
+shape = SubResource("CircleShape2D_0pr87")
+
+[node name="Parrot2" type="RigidBody2D" parent="."]
+position = Vector2(668, 155)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parrot2"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_6erul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot2"]
+shape = SubResource("CircleShape2D_0pr87")
+
+[node name="Parrot3" type="RigidBody2D" parent="."]
+position = Vector2(640, 347)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parrot3"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_6erul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot3"]
+shape = SubResource("CircleShape2D_0pr87")
+
+[node name="Parrot4" type="RigidBody2D" parent="."]
+position = Vector2(640, 70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parrot4"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_6erul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot4"]
+shape = SubResource("CircleShape2D_0pr87")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(635, 647)
+rotation = 1.5708
+scale = Vector2(1, 8.6)
+physics_material_override = SubResource("PhysicsMaterial_b44rm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+texture = ExtResource("2_ypvbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-1.75, 2)
+shape = SubResource("RectangleShape2D_n24u3")
