@@ -8,6 +8,7 @@
 size = Vector2(1191, 20)
 
 [node name="Water" type="Area2D"]
+z_index = 1
 script = ExtResource("1_afvsj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
