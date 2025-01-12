@@ -5,19 +5,19 @@ var _state : ANIMAL_STATE = ANIMAL_STATE.READY
 
 @onready
 var onscreen_notifier : VisibleOnScreenNotifier2D = $OffScreenNotifier
+@onready
+var state_label : Label = $StateLabel
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	onscreen_notifier.screen_exited.connect(die)
+	self.input_event.connect(process_input_event)
 
 
 func _physics_process(delta):
 	update(delta)
-
-
-func on_input_event(viewport, event, shape_idx):
-	print(event)
+	state_label.text = "%s" % ANIMAL_STATE.keys()[_state]
 
 
 func update(delta) -> void:
@@ -49,6 +49,14 @@ func set_new_state(new_state: ANIMAL_STATE) -> void:
 		freeze = false
 	elif _state == ANIMAL_STATE.DRAG:
 		pass
+
+
+#Process whether user is grabbing the bird to pull
+func process_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if _state == ANIMAL_STATE.READY and event.is_action_pressed("drag"):
+		set_new_state(ANIMAL_STATE.DRAG)
+		
+
 
 		
 func die() -> void:
