@@ -8,11 +8,17 @@ var onscreen_notifier : VisibleOnScreenNotifier2D = $OffScreenNotifier
 @onready
 var state_label : Label = $StateLabel
 
+var _start : Vector2
+const DRAG_LIMIT_MIN : Vector2 = Vector2(-60,0)
+const DRAG_LIMIT_MAX : Vector2 = Vector2(0,60)
+var _drag_start : Vector2
+var _drag_vector : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	onscreen_notifier.screen_exited.connect(die)
 	self.input_event.connect(process_input_event)
+	_start = position
 
 
 func _physics_process(delta):
@@ -26,12 +32,20 @@ func update(delta) -> void:
 			update_drag()
 				
 
+func get_drag_vector(gmp: Vector2) -> Vector2:
+	_drag_start = gmp
+	_drag_vector.x = clampf(_drag_start.x, DRAG_LIMIT_MIN.x, DRAG_LIMIT_MAX.x)
+	_drag_vector.y = clampf(_drag_start.y, DRAG_LIMIT_MIN.y, DRAG_LIMIT_MAX.y)
+	return _drag_vector
+
 func update_drag() -> void:
 	if detect_release() == true:
 		return
 		
 	var gmp = get_global_mouse_position()
-	position = gmp
+	print(get_drag_vector(gmp))
+	#position = _start + _drag_vector
+	
 
 
 func detect_release() -> bool:
