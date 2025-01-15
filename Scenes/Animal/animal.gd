@@ -9,8 +9,8 @@ var onscreen_notifier : VisibleOnScreenNotifier2D = $OffScreenNotifier
 var state_label : Label = $StateLabel
 
 var _start : Vector2
-const DRAG_LIMIT_MIN : Vector2 = Vector2(-60,0)
-const DRAG_LIMIT_MAX : Vector2 = Vector2(0,60)
+const DRAG_LIMIT_MIN : Vector2 = Vector2(-100,0)
+const DRAG_LIMIT_MAX : Vector2 = Vector2(0,100)
 var _drag_start : Vector2
 var _drag_vector : Vector2
 
@@ -31,20 +31,20 @@ func update(delta) -> void:
 		ANIMAL_STATE.DRAG:
 			update_drag()
 				
-
+#Clamp the drag position and the starting position to be within the bounds of the rectangle we want the user to be able to move the animal
 func get_drag_vector(gmp: Vector2) -> Vector2:
 	_drag_start = gmp
-	_drag_vector.x = clampf(_drag_start.x, DRAG_LIMIT_MIN.x, DRAG_LIMIT_MAX.x)
-	_drag_vector.y = clampf(_drag_start.y, DRAG_LIMIT_MIN.y, DRAG_LIMIT_MAX.y)
+	_drag_vector.x = clampf(_drag_start.x, _start.x + DRAG_LIMIT_MIN.x, _start.x + DRAG_LIMIT_MAX.x)
+	_drag_vector.y = clampf(_drag_start.y, _start.y + DRAG_LIMIT_MIN.y, _start.y + DRAG_LIMIT_MAX.y)
 	return _drag_vector
 
 func update_drag() -> void:
 	if detect_release() == true:
 		return
-		
-	var gmp = get_global_mouse_position()
-	print(get_drag_vector(gmp))
-	#position = _start + _drag_vector
+	#Get new drag vector to move the animal to
+	var new_drag_vector = get_drag_vector(get_global_mouse_position())
+	#Move animal
+	position = new_drag_vector
 	
 
 
