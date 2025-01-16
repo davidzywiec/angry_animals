@@ -16,4 +16,4 @@ texture = ExtResource("1_65chg")
 position = Vector2(572, 586)
 
 [node name="SpawnMarker" type="Marker2D" parent="."]
-position = Vector2(252, 158)
+position = Vector2(135, 329)
