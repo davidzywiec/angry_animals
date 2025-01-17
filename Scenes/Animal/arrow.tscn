@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://832dm7wxiwvt"]
 
 [ext_resource type="Texture2D" uid="uid://dktovbxej0v8m" path="res://assets/items/arrow.png" id="1_3lu6x"]
-[ext_resource type="Script" path="res://Scenes/Animal/arrow.gd" id="1_d6a3m"]
+[ext_resource type="AudioStream" uid="uid://c8uouyjej3pj5" path="res://assets/audio/stretch2.ogg" id="2_4mr4j"]
 
 [node name="Arrow" type="Node2D"]
-script = ExtResource("1_d6a3m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(300, -9)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_3lu6x")
-offset = Vector2(-1200, 36)
+offset = Vector2(200, 0)
+
+[node name="StretchSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4mr4j")
