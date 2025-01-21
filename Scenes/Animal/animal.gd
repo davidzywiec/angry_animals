@@ -110,6 +110,9 @@ func process_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> v
 
 func check_sleep() ->void:
 	if sleeping == true:
+		for body in get_colliding_bodies():
+				body.die()
+			
 		call_deferred("die")
 
 		
