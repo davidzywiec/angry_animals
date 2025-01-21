@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddl8r4g2wyvqm"]
+
+[ext_resource type="PackedScene" uid="uid://drhbifyx0admg" path="res://Scenes/Main/level_button.tscn" id="1_6kgym"]
+[ext_resource type="Texture2D" uid="uid://boqrcqpgt7q7y" path="res://assets/env/MainBG.png" id="1_kwobt"]
+[ext_resource type="LabelSettings" uid="uid://dohkl4lpxggcg" path="res://Scenes/Main/96_blue_large.tres" id="2_dnh31"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = -57.0
+offset_top = -41.0
+offset_right = 1211.0
+offset_bottom = 702.0
+texture = ExtResource("1_kwobt")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0523599
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Title" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Angry Animals
+"
+label_settings = ExtResource("2_dnh31")
+
+[node name="HB" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="LevelButton" parent="HB" instance=ExtResource("1_6kgym")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="HB" instance=ExtResource("1_6kgym")]
+layout_mode = 2
+
+[node name="LevelButton3" parent="HB" instance=ExtResource("1_6kgym")]
+layout_mode = 2

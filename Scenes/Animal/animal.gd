@@ -95,6 +95,7 @@ func set_release_state() -> void:
 	#Apply impuse
 	apply_central_impulse(get_impulse())
 	launch_sound.play()
+	SignalManager.attemp_made.emit()
 
 func set_drag_state() -> void:
 	#Set the drag start to get difference between mouse and center start of animal
