@@ -11,6 +11,7 @@ func _ready() -> void:
 	spawn_animal()
 	SignalManager.die.connect(spawn_animal)
 	
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().change_scene_to_packed(MENU)
