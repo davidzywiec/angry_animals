@@ -61,6 +61,8 @@ layout_mode = 2
 
 [node name="LevelButton2" parent="HB" instance=ExtResource("1_6kgym")]
 layout_mode = 2
+level_num = 2
 
 [node name="LevelButton3" parent="HB" instance=ExtResource("1_6kgym")]
 layout_mode = 2
+level_num = 3

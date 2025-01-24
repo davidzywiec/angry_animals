@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drhbifyx0admg"]
+[gd_scene load_steps=5 format=3 uid="uid://drhbifyx0admg"]
 
 [ext_resource type="Texture2D" uid="uid://baytlo6jqopuw" path="res://assets/ui/panel_beige.png" id="1_fdpq5"]
 [ext_resource type="LabelSettings" uid="uid://b5aj50mp06ty6" path="res://Scenes/Main/48_white_large.tres" id="2_c60uc"]
+[ext_resource type="Script" path="res://Scenes/Main/level_button.gd" id="2_go2il"]
 [ext_resource type="LabelSettings" uid="uid://ohx8rm7ltihw" path="res://Scenes/Main/24_white_large.tres" id="3_yqg2g"]
 
 [node name="LevelButton" type="TextureButton"]
@@ -9,6 +10,7 @@ offset_right = 100.0
 offset_bottom = 100.0
 pivot_offset = Vector2(50, 50)
 texture_normal = ExtResource("1_fdpq5")
+script = ExtResource("2_go2il")
 
 [node name="MC" type="MarginContainer" parent="."]
 layout_mode = 1
