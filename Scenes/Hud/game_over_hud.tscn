@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://k11ull0fsa15"]
+
+[ext_resource type="LabelSettings" uid="uid://c0kip08oa0p8w" path="res://Scenes/Hud/128_hud_wite_label.tres" id="1_u43iq"]
+[ext_resource type="LabelSettings" uid="uid://dy5tppre4g776" path="res://Scenes/Hud/24_hud_wite_label.tres" id="2_nheqw"]
+
+[node name="GameOver_HUD" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.5
+offset_top = -78.5
+offset_right = 321.5
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = ExtResource("1_u43iq")
+
+[node name="Continue" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SPACE TO CONTINUE"
+label_settings = ExtResource("2_nheqw")

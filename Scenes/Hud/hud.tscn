@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0y1q1vbukusb"]
+[gd_scene load_steps=5 format=3 uid="uid://b0y1q1vbukusb"]
 
 [ext_resource type="LabelSettings" uid="uid://dy5tppre4g776" path="res://Scenes/Hud/24_hud_wite_label.tres" id="1_caylu"]
 [ext_resource type="Script" path="res://Scenes/Hud/hud.gd" id="1_tc0i6"]
+[ext_resource type="PackedScene" uid="uid://k11ull0fsa15" path="res://Scenes/Hud/game_over_hud.tscn" id="3_5cuhu"]
+[ext_resource type="PackedScene" uid="uid://l2t0vcxu6ujm" path="res://Scenes/Hud/win_hud.tscn" id="4_qi0ek"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -14,8 +16,10 @@ script = ExtResource("1_tc0i6")
 
 [node name="MC" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 173.0
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 74.0
+grow_horizontal = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -61,3 +65,19 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "0"
 label_settings = ExtResource("1_caylu")
+
+[node name="TimerLabel" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "90"
+label_settings = ExtResource("1_caylu")
+
+[node name="ScoreTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="GameOver_HUD" parent="." instance=ExtResource("3_5cuhu")]
+layout_mode = 1
+
+[node name="WinHUD" parent="." instance=ExtResource("4_qi0ek")]
+visible = false
+layout_mode = 1

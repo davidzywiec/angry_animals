@@ -20,9 +20,11 @@ func _ready() -> void:
 	mouse_entered.connect(scale_btn)
 	mouse_exited.connect(scale_btn)
 	pressed.connect(switch_scene)
+	SignalManager.update_high_scores.connect(update_high_score_label)
 	#Label the button based on the level
 	level_label.text = str(level_num)
 	level_scene = load("res://Scenes/Level/level_%s.tscn" % str(level_num))
+	update_high_score_label()
 	
 func scale_btn() -> void:
 	var tween = create_tween()
@@ -37,3 +39,5 @@ func scale_btn() -> void:
 func switch_scene() -> void:
 	get_tree().change_scene_to_packed(level_scene)
 	
+func update_high_score_label() -> void:
+	score_label.text = str(ScoreManager.get_high_score(level_num))

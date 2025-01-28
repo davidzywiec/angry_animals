@@ -24,6 +24,10 @@ ScoreManager="*res://Singletons/ScoreManager.gd"
 
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+cup=""
+
 [input]
 
 drag={

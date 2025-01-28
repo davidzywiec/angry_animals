@@ -7,5 +7,5 @@ func _ready() -> void:
 	self.body_entered.connect(start_splash_sound)
 
 
-func start_splash_sound(body: Node2D) -> void:
+func start_splash_sound(_body: Node2D) -> void:
 	splash.play(0)

@@ -35,6 +35,7 @@ func _ready() -> void:
 	self.body_entered.connect(play_kick_sound)
 	_start = position
 	arrow.hide()
+	SignalManager.game_over.connect(game_over)
 
 
 func _physics_process(delta):
@@ -50,7 +51,7 @@ func scale_and_point_arrow() -> void:
 	arrow.scale.x = (arrow_scale_x * scale_perc) + arrow_scale_x
 	arrow.rotation = (_start - position).angle()
 
-func update(delta) -> void:
+func update(_delta) -> void:
 	match _state:
 		ANIMAL_STATE.DRAG:
 			update_drag()
@@ -95,7 +96,6 @@ func set_release_state() -> void:
 	#Apply impuse
 	apply_central_impulse(get_impulse())
 	launch_sound.play()
-	ScoreManager._level_attempts += 1
 	SignalManager.attemp_made.emit()
 
 
@@ -106,7 +106,7 @@ func set_drag_state() -> void:
 	
 	
 #Process whether user is grabbing the bird to pull
-func process_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func process_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if _state == ANIMAL_STATE.READY and event.is_action_pressed("drag"):
 		set_new_state(ANIMAL_STATE.DRAG)
 		
@@ -127,6 +127,9 @@ func play_stretch_sound() -> void:
 	if (prev_drag_vector - _drag_vector).length() > 0 and stretch_sound.playing == false:
 		stretch_sound.play()
 
-func play_kick_sound(body: Node) -> void:
+func play_kick_sound(_body: Node) -> void:
 	if kick_sound.playing == false:
 		kick_sound.play()
+
+func game_over() -> void:
+	queue_free()

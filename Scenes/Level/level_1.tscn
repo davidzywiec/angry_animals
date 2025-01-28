@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bh60i2kg3wyq" path="res://Scenes/Cup/cup.tscn" id="2_2rt7y"]
 
 [node name="Level" instance=ExtResource("1_c63pn")]
+level_seconds = 120
 
 [node name="Cup" parent="." index="3" instance=ExtResource("2_2rt7y")]
 position = Vector2(598, 437)
+
+[node name="Scorer" parent="." index="5"]
+_level_number = 1

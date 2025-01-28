@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://l2t0vcxu6ujm"]
+
+[ext_resource type="LabelSettings" uid="uid://dohkl4lpxggcg" path="res://Scenes/Main/96_blue_large.tres" id="1_nhjf6"]
+[ext_resource type="LabelSettings" uid="uid://ohx8rm7ltihw" path="res://Scenes/Main/24_white_large.tres" id="2_iqu8s"]
+
+[node name="WinHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VC" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -48.5
+offset_right = 191.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Winner" type="Label" parent="VC"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "WINNER!"
+label_settings = ExtResource("1_nhjf6")
+
+[node name="Winner2" type="Label" parent="VC"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Space For Menu"
+label_settings = ExtResource("2_iqu8s")

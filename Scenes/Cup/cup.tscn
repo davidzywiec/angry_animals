@@ -57,7 +57,7 @@ _data = {
 "vanish": SubResource("Animation_a8rhk")
 }
 
-[node name="Cup" type="StaticBody2D"]
+[node name="Cup" type="StaticBody2D" groups=["cup"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ysm84")
 
